@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dancing Script"
+      rel="stylesheet"
+    />
+    <title>Will You Be My Valentine?</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Will You Be My Valentine?</h1>
+    </header>
+
+    <main>
+      <p>Hi Suji,</p>
+      <p>
+        We have been togarther for 1 year and 4 months now. I have had the best
+        times with you and would like to have many of these best times. I love
+        how you make me feel, how you make me laugh, how you take care of me ,
+        how you care about my family, how you always know how to make to feel
+        better, how you always know what I want, how you always know what I
+        need, how you always know what I am thinking, how you always know what I
+        am feeling...the list is never ending. You are everything I want and
+        nothing less. I love you so much and I was wondering if you would be my
+        Valentine?
+      </p>
+
+      <button onclick="showHearts()">Yes, I'd love to!</button>
+      <button onclick="playAudio()">Um, I am not sure...</button>
+
+      <audio id="myAudio">
+        <source src="try.mp3" type="audio/mp3" />
+        Your browser does not support the audio tag.
+      </audio>
+      <div class="memory">
+        <h2>A trip down the memory lane</h2>
+        <img src="arrow.png" alt="Memory Lane" width="200" height="200" />
+      </div>
+      <!-- Memory Lane Timeline -->
+      <div class="timeline">
+        <div class="event">
+          <h2>Your favourite picture of us</h2>
+          <img src="sujalsfav.jpeg" alt="sujalsfav" width="500" height="600" />
+        </div>
+
+        <div class="event">
+          <h2>My favourite picture of us</h2>
+          <img src="myfav.jpeg" alt="myfav" width="500" height="600" />
+        </div>
+
+        <div class="event">
+          <h2>The day we met for the first time,23May2022</h2>
+          <img src="day1.jpeg" alt="day1" />
+        </div>
+        <div class="event">
+          <h2>The day we met for the first time,23May2022</h2>
+          <img src="meday1.jpeg" alt="meday1" />
+        </div>
+        <div class="event">
+          <h2>The first time you made something for me</h2>
+          <img src="maggi.jpeg" alt="maggi" />
+        </div>
+        <div class="event">
+          <h2>The first time you asked me out</h2>
+          <img src="askout.jpeg" alt="askout" />
+        </div>
+        <div class="event">
+          <h2>The first time we went to not so conert, concert</h2>
+          <img src="concert.jpeg" alt="concert" />
+        </div>
+        <div class="event">
+          <h2>Our first snow here</h2>
+          <img src="snow.jpeg" alt="snow" />
+        </div>
+        <div class="event">
+          <h2>Us in the streets of denmark</h2>
+          <img src="denmark.jpeg" alt="denmark" />
+        </div>
+        <div class="event">
+          <h2>Us in denmark</h2>
+          <img src="denamrk2.jpeg" alt="denmark2" />
+        </div>
+        <div class="event">
+          <h2>The night you got drunk and confessed all your feelings</h2>
+          <img src="drunk.jpeg" alt="drunk" />
+        </div>
+        <div class="event">
+          <h2>Our first flight together</h2>
+          <img src="flight.jpeg" alt="flight" />
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function showHearts() {
+        const heartContainer = document.createElement("div");
+        heartContainer.classList.add("heart-container");
+        document.body.appendChild(heartContainer);
+
+        for (let i = 0; i < 30; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.animationDuration = Math.random() * 2 + 1 + "s";
+          heartContainer.appendChild(heart);
+
+          heart.addEventListener("animationend", () => {
+            heart.remove();
+          });
+        }
+
+        // Stop hearts after 10 seconds
+        setTimeout(() => {
+          heartContainer.remove();
+        }, 10000);
+      }
+      function playAudio() {
+        const audio = document.getElementById("myAudio");
+        audio.play();
+      }
+    </script>
+  </body>
+</html>
